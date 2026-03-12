@@ -362,11 +362,62 @@ add_notes(slide,
 
 
 # ════════════════════════════════════════════════════
-# SLIDE 5: N高・S高グループの客観評価
+# SLIDE 5: 自己診断の詳細
+# ════════════════════════════════════════════════════
+slide = new_slide()
+add_title_bar(slide, "4つの診断であなたの最適タイプを特定", "自分を知ることが学校選びの第一歩")
+add_footer(slide, 4)
+
+diagnostics = [
+    ("診断1", "学習スタイル診断", "オンライン完結派？\n週数日通学派？\n個別指導派？", C_ACCENT_BLUE),
+    ("診断2", "生活リズム診断", "朝型？夜型？\n部活や習い事と\n両立したい？", C_ACCENT_GREEN),
+    ("診断3", "目標志向診断", "大学進学？専門職？\n起業？やりたいことを\n探したい？", C_ACCENT_ORANGE),
+    ("診断4", "サポートニーズ診断", "手厚いケア希望？\n自律学習型？\nメンター必要？", C_ACCENT_PURPLE),
+]
+
+card_w = Emu(1920240)
+gap = Emu(182880)
+for i, (num, title, questions, color) in enumerate(diagnostics):
+    x = Emu(457200) + (card_w + gap) * i
+    y = Emu(1097280)
+    add_rounded_rect(slide, x, y, card_w, Emu(3200400), C_WHITE)
+    add_rect(slide, x, y, card_w, Emu(54864), color)
+    # number badge
+    add_rounded_rect(slide, x + Emu(137160), y + Emu(137160), Emu(822960), Emu(320040), color)
+    add_textbox(slide, x + Emu(137160), y + Emu(137160), Emu(822960), Emu(320040),
+                num, "Calibri", Pt(11), True, C_WHITE, PP_ALIGN.CENTER)
+    # title
+    add_textbox(slide, x + Emu(45720), y + Emu(548640), card_w - Emu(91440), Emu(457200),
+                title, "Calibri", Pt(14), True, C_DARK, PP_ALIGN.CENTER)
+    # divider
+    add_rect(slide, x + Emu(274320), y + Emu(1005840), card_w - Emu(548640), Emu(9144), C_BG_LIGHT)
+    # questions
+    add_textbox(slide, x + Emu(91440), y + Emu(1097280), card_w - Emu(182880), Emu(1645920),
+                questions, "Calibri", Pt(11), False, C_GRAY, PP_ALIGN.CENTER)
+
+add_textbox(slide, MARGIN, Emu(4389120), CONTENT_W, Emu(274320),
+            "→ 診断結果を組み合わせて、第3章のタイプ別ガイドで最適校を見つけましょう",
+            "Calibri", Pt(11), True, C_GOLD, PP_ALIGN.CENTER)
+
+add_notes(slide,
+    "では、具体的に4つの診断で自分のタイプを特定しましょう。\n"
+    "診断1は学習スタイル診断。オンラインで完結したいのか、週に数日は通学したいのか、\n"
+    "個別指導を受けたいのか。自分に合った学習の形を考えてみてください。\n"
+    "診断2は生活リズム診断。朝型か夜型か、部活や習い事との両立を考えているかがポイントです。\n"
+    "診断3は目標志向診断。大学進学を目指すのか、専門職に就きたいのか、\n"
+    "起業に興味があるのか、それともまだやりたいことを探している段階なのか。\n"
+    "診断4はサポートニーズ診断。手厚いケアが欲しいのか、自分で進められるタイプなのか。\n"
+    "これらの診断結果を組み合わせることで、あなたに最適な学校タイプが見えてきます。\n"
+    "この後のタイプ別ガイドで、具体的な学校を紹介していきますね。"
+)
+
+
+# ════════════════════════════════════════════════════
+# SLIDE 6: N高・S高グループの客観評価
 # ════════════════════════════════════════════════════
 slide = new_slide()
 add_title_bar(slide, "N高等学校・S高等学校グループ", "その「革新性」と「現実」")
-add_footer(slide, 4)
+add_footer(slide, 5)
 
 # Merit box
 add_rounded_rect(slide, MARGIN, Emu(1005840), Emu(3931920), Emu(1645920), RGBColor(0xE8, 0xF5, 0xE9))
@@ -439,7 +490,7 @@ add_notes(slide,
 # ════════════════════════════════════════════════════
 slide = new_slide()
 add_title_bar(slide, "ゼロ高等学院", "堀江氏の「教育論」と体験型学習の真相")
-add_footer(slide, 5)
+add_footer(slide, 6)
 
 # 特徴
 add_rounded_rect(slide, MARGIN, Emu(1005840), Emu(5120640), Emu(1554480), C_BG_LIGHT)
@@ -498,7 +549,7 @@ add_notes(slide,
 # ════════════════════════════════════════════════════
 slide = new_slide()
 add_title_bar(slide, "【Bタイプ】「好き」を仕事に！専門特化校", "専門性追求タイプ向け")
-add_footer(slide, 6)
+add_footer(slide, 7)
 
 schools = [
     ("ヒューマンキャンパス\n高等学校", "声優・eスポーツ・美容\nマンガなど40分野", "40以上の\n専門分野", C_ACCENT_GREEN),
@@ -548,7 +599,7 @@ add_notes(slide,
 # ════════════════════════════════════════════════════
 slide = new_slide()
 add_title_bar(slide, "【Dタイプ】世界へ羽ばたく！海外大学進学の道", "グローバル・挑戦志向タイプ向け")
-add_footer(slide, 7)
+add_footer(slide, 8)
 
 # NIC
 add_rounded_rect(slide, MARGIN, Emu(1005840), Emu(3931920), Emu(2834640), C_WHITE)
@@ -613,7 +664,7 @@ add_notes(slide,
 # ════════════════════════════════════════════════════
 slide = new_slide()
 add_title_bar(slide, "【A・Cタイプ】自分のペースで ＆ 仲間と成長", "学習自由度重視 × コミュニティ重視")
-add_footer(slide, 8)
+add_footer(slide, 9)
 
 # Left: A type
 add_rounded_rect(slide, MARGIN, Emu(1005840), Emu(4023360), Emu(3520440), C_WHITE)
@@ -672,11 +723,71 @@ add_notes(slide,
 
 
 # ════════════════════════════════════════════════════
-# SLIDE 10: 学費と支援制度
+# SLIDE 11: 学校比較データシート
+# ════════════════════════════════════════════════════
+slide = new_slide()
+add_title_bar(slide, "学校比較データシート", "主要通信制高校を一覧で比較")
+add_footer(slide, 10)
+
+# comparison table
+add_rounded_rect(slide, MARGIN, Emu(960120), CONTENT_W, Emu(3657600), C_WHITE)
+
+# Header row
+comp_headers = ["学校名", "タイプ", "学費目安（年）", "特徴", "向いている人"]
+comp_widths = [Emu(1645920), Emu(1005840), Emu(1280160), Emu(2194560), Emu(2103120)]
+hx = MARGIN
+for i, (h, w) in enumerate(zip(comp_headers, comp_widths)):
+    add_rect(slide, hx, Emu(960120), w, Emu(320040), C_GOLD)
+    add_textbox(slide, hx, Emu(960120), w, Emu(320040),
+                h, "Calibri", Pt(9), True, C_WHITE, PP_ALIGN.CENTER)
+    hx += w
+
+# Data rows
+comp_data = [
+    ("N高・S高", "オンライン/通学", "25〜120万", "先進的IT教育", "自己管理力がある人"),
+    ("ゼロ高", "体験型", "約50万〜", "起業・実践中心", "行動力がある人"),
+    ("ヒューマンキャンパス", "専門特化", "約40〜80万", "40以上の専門分野", "好きを極めたい人"),
+    ("クラーク記念国際", "通学型", "約60〜100万", "全国キャンパス", "仲間と学びたい人"),
+    ("ルネサンス", "オンライン", "約25〜40万", "スマホ学習", "自分のペースの人"),
+    ("NIC International", "グローバル", "約150万〜", "海外大学進学", "海外を目指す人"),
+    ("公立通信制", "通信型", "約3〜5万", "低コスト", "費用を抑えたい人"),
+]
+
+for ri, (name, typ, cost, feat, suited) in enumerate(comp_data):
+    bg = C_BG_LIGHT if ri % 2 == 0 else C_WHITE
+    ry = Emu(1280160) + Emu(320040) * ri
+    vals = [name, typ, cost, feat, suited]
+    rx = MARGIN
+    for ci, (val, w) in enumerate(zip(vals, comp_widths)):
+        add_rect(slide, rx, ry, w, Emu(320040), bg)
+        add_textbox(slide, rx, ry, w, Emu(320040),
+                    val, "Calibri", Pt(8), ci == 0, C_DARK, PP_ALIGN.CENTER)
+        rx += w
+
+add_textbox(slide, MARGIN, Emu(4663440), CONTENT_W, Emu(274320),
+            "※ 学費は就学支援金適用前の目安です。詳細は各学校の公式サイトをご確認ください",
+            "Calibri", Pt(9), False, C_GRAY, PP_ALIGN.CENTER)
+
+add_notes(slide,
+    "ここで、主要な通信制高校を一覧で比較してみましょう。\n"
+    "N高・S高はオンラインと通学の両方に対応し、学費は年間25万から120万円程度。\n"
+    "ゼロ高は体験型の学びが中心で、行動力のある人に向いています。\n"
+    "ヒューマンキャンパスは40以上の専門分野を学べるのが最大の特徴。\n"
+    "クラーク記念国際は全国にキャンパスがあり、通学して仲間と学びたい方に最適です。\n"
+    "ルネサンスはスマホで学べるスタイルで、自分のペースを大切にしたい方向け。\n"
+    "NIC Internationalは海外大学進学に特化した学校です。\n"
+    "公立通信制は年間3万から5万円と圧倒的に費用を抑えられます。\n"
+    "この表を参考に、自分に合いそうな学校を絞り込んでみてください。\n"
+    "学費は就学支援金適用前の目安なので、実際にはもっと安くなる可能性があります。"
+)
+
+
+# ════════════════════════════════════════════════════
+# SLIDE 12: 学費と支援制度
 # ════════════════════════════════════════════════════
 slide = new_slide()
 add_title_bar(slide, "「お金の不安」を超える！学費と支援制度", "知らないと損する支援制度を完全攻略")
-add_footer(slide, 9)
+add_footer(slide, 11)
 
 # 学費比較テーブル風
 add_rounded_rect(slide, MARGIN, Emu(1005840), CONTENT_W, Emu(1554480), C_WHITE)
@@ -741,11 +852,90 @@ add_notes(slide,
 
 
 # ════════════════════════════════════════════════════
-# SLIDE 11: 学校選びの実践術
+# SLIDE 13: 支援制度申請ステップガイド
+# ════════════════════════════════════════════════════
+slide = new_slide()
+add_title_bar(slide, "就学支援金 申請ステップガイド", "申請漏れゼロ！確実に支援を受けるために")
+add_footer(slide, 12)
+
+# 年収別シミュレーション
+add_rounded_rect(slide, MARGIN, Emu(960120), Emu(4023360), Emu(1920240), C_WHITE)
+add_textbox(slide, Emu(548640), Emu(960120), Emu(3840480), Emu(320040),
+            "年収別 支援金シミュレーション", "Calibri", Pt(13), True, C_ACCENT_BLUE, PP_ALIGN.LEFT)
+
+sim_data = [
+    ("年収270万円未満", "最大39.6万円/年 支給", "私立でも実質負担が大幅減"),
+    ("年収270〜590万円", "最大39.6万円/年 支給", "多くの家庭がこの区分に該当"),
+    ("年収590〜910万円", "最大11.88万円/年 支給", "一部支給で負担を軽減"),
+    ("年収910万円以上", "支給対象外", "学校独自の奨学金を活用"),
+]
+sy = Emu(1280160)
+for income, amount, note in sim_data:
+    add_textbox(slide, Emu(548640), sy, Emu(1554480), Emu(274320),
+                income, "Calibri", Pt(9), True, C_DARK, PP_ALIGN.LEFT)
+    add_textbox(slide, Emu(2103120), sy, Emu(1280160), Emu(274320),
+                amount, "Calibri", Pt(9), True, C_ACCENT_GREEN, PP_ALIGN.LEFT)
+    add_textbox(slide, Emu(3383280), sy, Emu(1188720), Emu(274320),
+                note, "Calibri", Pt(8), False, C_GRAY, PP_ALIGN.LEFT)
+    sy += Emu(320040)
+
+# 申請ステップ
+add_rounded_rect(slide, Emu(4663440), Emu(960120), Emu(4023360), Emu(1920240), C_WHITE)
+add_textbox(slide, Emu(4754880), Emu(960120), Emu(3840480), Emu(320040),
+            "申請の3ステップ", "Calibri", Pt(13), True, C_ACCENT_ORANGE, PP_ALIGN.LEFT)
+
+app_steps = [
+    ("STEP 1", "入学時に学校から申請書類を受け取る"),
+    ("STEP 2", "マイナンバーカード等で\n保護者の所得情報を提出"),
+    ("STEP 3", "審査後、学校の授業料から\n支援金が差し引かれる"),
+]
+asy = Emu(1280160)
+for step, desc in app_steps:
+    add_rounded_rect(slide, Emu(4754880), asy, Emu(822960), Emu(274320), C_ACCENT_ORANGE)
+    add_textbox(slide, Emu(4754880), asy, Emu(822960), Emu(274320),
+                step, "Calibri", Pt(9), True, C_WHITE, PP_ALIGN.CENTER)
+    add_textbox(slide, Emu(5669280), asy, Emu(2926080), Emu(457200),
+                desc, "Calibri", Pt(9), False, C_DARK, PP_ALIGN.LEFT)
+    asy += Emu(502920)
+
+# 注意事項
+add_rounded_rect(slide, MARGIN, Emu(3063240), CONTENT_W, Emu(1371600), RGBColor(0xFF, 0xF3, 0xE0))
+add_textbox(slide, Emu(548640), Emu(3063240), CONTENT_W, Emu(320040),
+            "申請時の注意点", "Calibri", Pt(13), True, C_ACCENT_ORANGE, PP_ALIGN.LEFT)
+
+warnings = [
+    "申請期限を必ず確認（入学後すぐに手続きが必要な場合も）",
+    "都道府県の上乗せ助成金は別途申請が必要",
+    "転入・編入の場合は前の学校での在籍期間に注意",
+    "7月頃に収入状況届出（継続届）の提出が必要",
+]
+wy = Emu(3383280)
+for w in warnings:
+    add_textbox(slide, Emu(640080), wy, Emu(8046720), Emu(274320),
+                f"  {w}", "Calibri", Pt(10), False, C_DARK, PP_ALIGN.LEFT)
+    wy += Emu(274320)
+
+add_notes(slide,
+    "就学支援金の具体的な申請方法をお伝えします。\n"
+    "まず年収別のシミュレーションです。\n"
+    "年収270万円未満の世帯は、最大で年間39万6千円が支給されます。\n"
+    "年収590万円までの世帯も同額の支給を受けられます。多くの家庭がこの区分に該当します。\n"
+    "年収910万円までの世帯は一部支給で、最大11万8800円です。\n"
+    "申請は3ステップで簡単です。\n"
+    "ステップ1、入学時に学校から申請書類を受け取ります。\n"
+    "ステップ2、マイナンバーカード等で保護者の所得情報を提出します。\n"
+    "ステップ3、審査後、授業料から支援金が差し引かれます。\n"
+    "注意点として、申請期限の確認、都道府県の上乗せ助成金の別途申請、\n"
+    "7月頃の継続届の提出を忘れないようにしましょう。"
+)
+
+
+# ════════════════════════════════════════════════════
+# SLIDE 14: 学校選びの実践術
 # ════════════════════════════════════════════════════
 slide = new_slide()
 add_title_bar(slide, "後悔しない！学校選び実践術", "ネット情報を鵜呑みにしない賢い選び方")
-add_footer(slide, 10)
+add_footer(slide, 13)
 
 # 3 step cards
 steps = [
@@ -798,11 +988,79 @@ add_notes(slide,
 
 
 # ════════════════════════════════════════════════════
-# SLIDE 12: 先輩たちのストーリー
+# SLIDE 15: 親子コミュニケーション術
+# ════════════════════════════════════════════════════
+slide = new_slide()
+add_title_bar(slide, "親子で「未来の進路」を語ろう", "通信制高校を家族で考えるコミュニケーション術")
+add_footer(slide, 14)
+
+# Left: 保護者向け
+add_rounded_rect(slide, MARGIN, Emu(1005840), Emu(4023360), Emu(3200400), C_WHITE)
+add_rect(slide, MARGIN, Emu(1005840), Emu(4023360), Emu(54864), C_ACCENT_BLUE)
+add_textbox(slide, Emu(548640), Emu(1097280), Emu(3840480), Emu(320040),
+            "保護者の方へ", "Calibri", Pt(14), True, C_ACCENT_BLUE, PP_ALIGN.LEFT)
+
+parent_tips = [
+    ("子どもの話を最後まで聞く", "否定せず、まずは気持ちを受け止める"),
+    ("「なぜ通信制？」ではなく\n「何を学びたい？」と聞く", "動機を理解することが大切"),
+    ("一緒に学校を調べる", "子どもと同じ情報を共有する"),
+    ("最終決定は本人に委ねる", "自己決定感が入学後の意欲に直結"),
+]
+py = Emu(1463040)
+for tip, note in parent_tips:
+    add_textbox(slide, Emu(548640), py, Emu(2468880), Emu(457200),
+                f"  {tip}", "Calibri", Pt(10), True, C_DARK, PP_ALIGN.LEFT)
+    add_textbox(slide, Emu(3017520), py, Emu(1463040), Emu(457200),
+                note, "Calibri", Pt(8), False, C_GRAY, PP_ALIGN.LEFT)
+    py += Emu(548640)
+
+# Right: 生徒向け
+add_rounded_rect(slide, Emu(4663440), Emu(1005840), Emu(4023360), Emu(3200400), C_WHITE)
+add_rect(slide, Emu(4663440), Emu(1005840), Emu(4023360), Emu(54864), C_ACCENT_GREEN)
+add_textbox(slide, Emu(4754880), Emu(1097280), Emu(3840480), Emu(320040),
+            "生徒の皆さんへ", "Calibri", Pt(14), True, C_ACCENT_GREEN, PP_ALIGN.LEFT)
+
+student_tips = [
+    ("自分の気持ちを言葉にする", "「なんとなく」ではなく具体的に"),
+    ("調べた情報を親に共有する", "一方的でなく、一緒に考える姿勢"),
+    ("不安なことも正直に伝える", "隠すより話した方が解決が早い"),
+    ("「こうしたい」を明確にする", "目標があると親も安心する"),
+]
+sy = Emu(1463040)
+for tip, note in student_tips:
+    add_textbox(slide, Emu(4754880), sy, Emu(2468880), Emu(457200),
+                f"  {tip}", "Calibri", Pt(10), True, C_DARK, PP_ALIGN.LEFT)
+    add_textbox(slide, Emu(7223760), sy, Emu(1463040), Emu(457200),
+                note, "Calibri", Pt(8), False, C_GRAY, PP_ALIGN.LEFT)
+    sy += Emu(548640)
+
+# bottom
+add_rounded_rect(slide, MARGIN, Emu(4297680), CONTENT_W, Emu(365760), C_BG_LIGHT)
+add_textbox(slide, Emu(548640), Emu(4297680), Emu(8046720), Emu(365760),
+            "家族で納得して決めた進路は、入学後の大きな支えになります",
+            "Calibri", Pt(12), True, C_GOLD, PP_ALIGN.CENTER)
+
+add_notes(slide,
+    "進路を決める上で、親子のコミュニケーションはとても大切です。\n"
+    "保護者の方へのアドバイスです。\n"
+    "まず、お子さんの話を最後まで聞いてあげてください。否定せず、気持ちを受け止めましょう。\n"
+    "「なぜ通信制なの？」ではなく「何を学びたいの？」と聞いてみてください。\n"
+    "一緒に学校を調べることで、同じ情報を共有できます。\n"
+    "そして最終決定はお子さん本人に委ねてください。自分で決めたという実感が入学後の意欲に直結します。\n"
+    "生徒の皆さんへ。\n"
+    "自分の気持ちを言葉にして、具体的に伝えましょう。\n"
+    "調べた情報を親に共有して、一緒に考える姿勢を見せてください。\n"
+    "不安なことも正直に伝えた方が、解決が早くなります。\n"
+    "家族で納得して決めた進路は、入学後の大きな支えになりますよ。"
+)
+
+
+# ════════════════════════════════════════════════════
+# SLIDE 16: 先輩たちのストーリー
 # ════════════════════════════════════════════════════
 slide = new_slide()
 add_title_bar(slide, "先輩たちの選択とその後の人生", "通信制高校から広がる多様な未来")
-add_footer(slide, 11)
+add_footer(slide, 15)
 
 stories = [
     ("不登校→再起", "通信制で心身を立て直し\n新たな興味を発見して活躍", "心のケアが\n充実", C_ACCENT_GREEN),
@@ -858,7 +1116,7 @@ add_notes(slide,
 # ════════════════════════════════════════════════════
 slide = new_slide()
 add_title_bar(slide, "今すぐ始める！行動プラン", "最初の一歩を踏み出そう")
-add_footer(slide, 12)
+add_footer(slide, 16)
 
 actions = [
     ("今日", "気になる学校を3つリストアップ\n公式サイトとパンフレットをチェック", C_ACCENT_GREEN),
@@ -904,7 +1162,133 @@ add_notes(slide,
 
 
 # ════════════════════════════════════════════════════
-# SLIDE 14: まとめ＆エンディング
+# SLIDE 18: 入学準備チェックリスト
+# ════════════════════════════════════════════════════
+slide = new_slide()
+add_title_bar(slide, "入学準備チェックリスト", "迷わず進むためのロードマップ")
+add_footer(slide, 17)
+
+# Left: 入学前
+add_rounded_rect(slide, MARGIN, Emu(960120), Emu(2651760), Emu(3657600), C_WHITE)
+add_rect(slide, MARGIN, Emu(960120), Emu(2651760), Emu(54864), C_ACCENT_GREEN)
+add_textbox(slide, Emu(548640), Emu(1005840), Emu(2468880), Emu(320040),
+            "入学前", "Calibri", Pt(14), True, C_ACCENT_GREEN, PP_ALIGN.LEFT)
+
+before_items = [
+    "願書・必要書類の準備",
+    "面接対策（志望動機を整理）",
+    "転入・編入の場合は単位確認",
+    "就学支援金の申請準備",
+    "学習環境の整備（PC・ネット）",
+    "スクーリング日程の確認",
+]
+by = Emu(1371600)
+for item in before_items:
+    add_textbox(slide, Emu(548640), by, Emu(2468880), Emu(274320),
+                f"  {item}", "Calibri", Pt(10), False, C_DARK, PP_ALIGN.LEFT)
+    by += Emu(320040)
+
+# Middle: 入学後（最初の1ヶ月）
+add_rounded_rect(slide, Emu(3291840), Emu(960120), Emu(2651760), Emu(3657600), C_WHITE)
+add_rect(slide, Emu(3291840), Emu(960120), Emu(2651760), Emu(54864), C_ACCENT_BLUE)
+add_textbox(slide, Emu(3383280), Emu(1005840), Emu(2468880), Emu(320040),
+            "入学後 最初の1ヶ月", "Calibri", Pt(14), True, C_ACCENT_BLUE, PP_ALIGN.LEFT)
+
+after_items = [
+    "学習計画を立てる",
+    "レポート提出の仕組みを理解",
+    "担任・メンターと面談",
+    "オンライン学習ツールに慣れる",
+    "同級生との交流機会に参加",
+    "困ったら早めに相談する",
+]
+ay = Emu(1371600)
+for item in after_items:
+    add_textbox(slide, Emu(3383280), ay, Emu(2468880), Emu(274320),
+                f"  {item}", "Calibri", Pt(10), False, C_DARK, PP_ALIGN.LEFT)
+    ay += Emu(320040)
+
+# Right: 面接対策
+add_rounded_rect(slide, Emu(6126480), Emu(960120), Emu(2560320), Emu(3657600), C_WHITE)
+add_rect(slide, Emu(6126480), Emu(960120), Emu(2560320), Emu(54864), C_ACCENT_PURPLE)
+add_textbox(slide, Emu(6217920), Emu(1005840), Emu(2377440), Emu(320040),
+            "面接でよくある質問", "Calibri", Pt(14), True, C_ACCENT_PURPLE, PP_ALIGN.LEFT)
+
+interview_qs = [
+    "Q. なぜ通信制高校を\n    選びましたか？",
+    "Q. 入学後にやりたい\n    ことは何ですか？",
+    "Q. 将来の目標を\n    教えてください",
+    "Q. 自分の長所は\n    何だと思いますか？",
+]
+iy = Emu(1371600)
+for q in interview_qs:
+    add_rounded_rect(slide, Emu(6217920), iy, Emu(2377440), Emu(502920), C_BG_LIGHT)
+    add_textbox(slide, Emu(6309360), iy + Emu(45720), Emu(2194560), Emu(457200),
+                q, "Calibri", Pt(9), False, C_DARK, PP_ALIGN.LEFT)
+    iy += Emu(548640)
+
+add_notes(slide,
+    "入学準備のチェックリストをまとめました。\n"
+    "入学前にやるべきこと。願書や必要書類の準備、面接対策として志望動機を整理しておきましょう。\n"
+    "転入・編入の場合は、前の学校での単位がどれだけ引き継げるか確認してください。\n"
+    "就学支援金の申請準備も忘れずに。学習に必要なパソコンやネット環境も整えましょう。\n"
+    "入学後の最初の1ヶ月は、学習計画を立てることが最も大切です。\n"
+    "レポート提出の仕組みを理解して、担任やメンターとの面談を早めに行いましょう。\n"
+    "困ったことがあれば、早めに相談することがポイントです。\n"
+    "面接では「なぜ通信制を選んだか」「入学後にやりたいこと」「将来の目標」が\n"
+    "よく聞かれます。事前に自分の言葉で話せるように準備しておきましょう。"
+)
+
+
+# ════════════════════════════════════════════════════
+# SLIDE 19: よくある質問（FAQ）
+# ════════════════════════════════════════════════════
+slide = new_slide()
+add_title_bar(slide, "よくある質問（FAQ）", "視聴者の皆さんからの疑問に回答")
+add_footer(slide, 18)
+
+faqs = [
+    ("Q. 通信制高校の卒業資格は全日制と同じですか？",
+     "A. はい、同じです。「高校卒業」の資格は全日制と全く同じ扱いです。\n"
+     "    履歴書にも「○○高等学校 卒業」と記載できます。"),
+    ("Q. 大学受験に不利になりませんか？",
+     "A. 不利にはなりません。推薦入試やAO入試では、\n"
+     "    通信制ならではの経験がアピールポイントになることもあります。"),
+    ("Q. 友達はできますか？",
+     "A. できます！スクーリング、部活動、オンラインコミュニティなど、\n"
+     "    交流の機会は多くの学校で用意されています。"),
+    ("Q. 途中で全日制に戻ることはできますか？",
+     "A. 制度上は可能ですが、カリキュラムの違いがあるため、\n"
+     "    事前に転入先の学校に相談することをおすすめします。"),
+]
+
+fy = Emu(960120)
+for i, (q, a) in enumerate(faqs):
+    colors = [C_ACCENT_BLUE, C_ACCENT_GREEN, C_ACCENT_ORANGE, C_ACCENT_PURPLE]
+    add_rounded_rect(slide, MARGIN, fy, CONTENT_W, Emu(822960), C_WHITE)
+    add_rect(slide, MARGIN, fy, Emu(36576), Emu(822960), colors[i])
+    add_textbox(slide, Emu(594360), fy + Emu(45720), Emu(8046720), Emu(274320),
+                q, "Calibri", Pt(11), True, C_DARK, PP_ALIGN.LEFT)
+    add_textbox(slide, Emu(594360), fy + Emu(320040), Emu(8046720), Emu(457200),
+                a, "Calibri", Pt(10), False, C_GRAY, PP_ALIGN.LEFT)
+    fy += Emu(868680)
+
+add_notes(slide,
+    "よくある質問にお答えします。\n"
+    "まず、通信制高校の卒業資格は全日制と同じですか？という質問。\n"
+    "はい、全く同じです。高校卒業の資格に違いはありません。\n"
+    "次に、大学受験に不利になりませんか？\n"
+    "不利にはなりません。むしろ推薦入試やAO入試では、\n"
+    "通信制ならではのユニークな経験がアピールポイントになることもあります。\n"
+    "友達はできますか？という質問も多いですが、できます。\n"
+    "スクーリングや部活動、オンラインコミュニティなど、交流の機会はたくさんあります。\n"
+    "途中で全日制に戻ることは制度上可能ですが、カリキュラムの違いがあるので、\n"
+    "事前に転入先の学校に相談することをおすすめします。"
+)
+
+
+# ════════════════════════════════════════════════════
+# SLIDE 20: まとめ＆エンディング
 # ════════════════════════════════════════════════════
 slide = new_slide()
 # top & bottom gold lines
